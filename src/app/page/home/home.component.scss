@@ -38,6 +38,7 @@
       margin-top: 20px;
       color: #000000;
       text-align: justify;
+      font-size: 16px;
     }
 
     &__lista {
@@ -48,6 +49,8 @@
       color: #EB7A02;
       text-align: left;
       list-style-type: none;
+      display: flex;
+      justify-content: space-around;
 
       li {
         padding: 0.2em;
@@ -71,9 +74,10 @@
 
     &__cabecalho {
       text-align: center;
+      margin-top: 50px;
 
       h1 {
-      font-weight: 600;
+        font-weight: 600;
       }
 
       &__pesquisa {
@@ -177,6 +181,7 @@
 }
 
 @keyframes blink-caret {
+
   from,
   to {
     border-color: transparent;
@@ -203,13 +208,14 @@
     flex-direction: column;
   }
 
-  .home__painel-pessoal, .home__painel-tarefas {
+  .home__painel-pessoal,
+  .home__painel-tarefas {
     width: auto;
   }
 }
 
 @media (max-width: 425px) {
-  .home__painel-tarefas__tabela  {
+  .home__painel-tarefas__tabela {
     flex-direction: column;
     align-items: center;
   }

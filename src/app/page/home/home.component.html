@@ -5,7 +5,6 @@
     </figure>
 
     <div>
-
       <h2 class="home__painel-pessoal__titulo">Olá, você!</h2>
 
       <p class="home__painel-pessoal__subtitulo"> Bem-vindo ao Organize-Me, a ferramenta definitiva para gerenciar suas
@@ -58,7 +57,8 @@
         </article>
 
         <table>
-          <tr class="elevar" *ngFor="let task of (tasksFiltradas.length > 0 ? tasksFiltradas : tasksDia); let i = index">
+          <tr class="elevar"
+            *ngFor="let task of (tasksFiltradas.length > 0 ? tasksFiltradas : tasksDia); let i = index">
             <div style="display: flex;
               flex-direction: column;">
               <td style="font-weight: 600; color: #8AB7E2;">{{ task.titulo }}</td>
@@ -81,7 +81,8 @@
         </article>
 
         <table>
-          <tr class="elevar" *ngFor="let task of (tasksFiltradasNoite.length > 0 ? tasksFiltradasNoite : taskNoite); let i = index">
+          <tr class="elevar"
+            *ngFor="let task of (tasksFiltradasNoite.length > 0 ? tasksFiltradasNoite : taskNoite); let i = index">
             <div style="display: flex;
               flex-direction: column;">
               <td style="font-weight: 600; color: #8AB7E2;">{{ task.titulo }}</td>
