@@ -1,0 +1,24 @@
+<main class="form">
+
+  <h2>Adicionar nova tarefa</h2>
+
+  <form (ngSubmit)="submeterForm()">
+    <mat-form-field>
+      <input matInput placeholder="Título" [(ngModel)]="task.titulo" name="titulo" required>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Descrição" [(ngModel)]="task.descricao" name="descricao"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Período" [(ngModel)]="task.periodo" name="periodo" required>
+        <mat-option value="dia">Dia</mat-option>
+        <mat-option value="noite">Noite</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button type="submit">Adicionar</button>
+    <button mat-button type="button" (click)="fecharModal()">Cancelar</button>
+  </form>
+
+</main>

@@ -1,37 +1,220 @@
 .home {
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+  display: flex;
+  // align-items: center;
+  // justify-content: space-around;
+
 
   &__painel-pessoal {
+    width: 30%;
+    padding: 1em;
+    background-color: #8AB7E2;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
     &__imagem {
 
       img {
-
+        background-color: #F9F9F9;
+        border-radius: 80px;
+        padding: 1em;
+        width: 160px;
       }
     }
 
-    &__subtitulo {
+    &__titulo {
+      font-size: 32px;
+      color: #000000;
 
     }
 
-    &__lista {
+    &__subtitulo {
+      margin-top: 20px;
+      color: #000000;
+      text-align: justify;
+    }
 
+    &__lista {
+      margin-top: 30px;
+      background-color: #F9F9F9;
+      border-radius: 8px;
+      padding: 1em;
+      color: #EB7A02;
+      text-align: left;
+      list-style-type: none;
+
+      li {
+        padding: 0.2em;
+        display: flex;
+        align-items: center;
+      }
+
+      a {
+        text-decoration: none;
+        color: #060505;
+        margin-left: 5px;
+        font-weight: 600;
+      }
     }
   }
 
   &__painel-tarefas {
+    width: 70%;
+    padding: 1em;
+    background-color: #F9F9F9;
 
     &__cabecalho {
+      text-align: center;
 
+      h1 {
+      font-weight: 600;
+      }
+
+      &__pesquisa {
+        padding-left: 5px;
+        width: 35vw;
+        border-radius: 8px;
+        border: 1px solid #f8f8f8;
+        outline: none;
+        background-color: #dbd8d142;
+        margin-right: 5px;
+        font-size: 18px;
+      }
+
+      button {
+        padding: 2em;
+      }
     }
 
     &__tabela {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 30px;
+
 
       &__tarefas-dia {
+        table {
+          tr {
+            width: 250px;
+            margin-top: 20px;
+            display: flex;
+            padding: 1em;
+            background-color: #fffdfd;
+            box-shadow: 0 2px 4px #00000051;
+            border-radius: 8px;
+            justify-content: space-between
+          }
+
+          td {
+            word-break: break-all;
+          }
+        }
 
       }
 
       &__tarefas-noite {
-        
+        table {
+          tr {
+            width: 250px;
+            margin-top: 20px;
+            display: flex;
+            padding: 1em;
+            background-color: #070707;
+            box-shadow: 0 2px 4px #00000051;
+            border-radius: 8px;
+            justify-content: space-between
+          }
+
+          td {
+            word-break: break-all;
+            color: #f8f8f8;
+          }
+        }
       }
     }
+  }
+}
+
+.imagem-footer {
+  padding: 1em;
+  width: 120px;
+}
+
+// Animações
+.home__painel-pessoal__imagem img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.home__painel-pessoal__imagem img:hover {
+  transform: rotate(360deg);
+}
+
+.home__painel-pessoal__titulo {
+  width: 9ch;
+  animation: typing 1.5s steps(9), blink-caret 0.5s step-end 1s forwards;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  margin: 0 auto;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+    border-right-color: currentColor;
+  }
+
+  to {
+    width: 9ch;
+    border-right-color: currentColor;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: currentColor;
+  }
+}
+
+.elevar {
+  transition: transform 0.3s ease;
+}
+
+.elevar:hover {
+  transform: translateY(-3px);
+}
+
+
+
+// Responsividade
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+  }
+
+  .home__painel-pessoal, .home__painel-tarefas {
+    width: auto;
+  }
+}
+
+@media (max-width: 425px) {
+  .home__painel-tarefas__tabela  {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home__painel-tarefas__tabela__tarefas-dia {
+    margin-bottom: 30px;
   }
 }

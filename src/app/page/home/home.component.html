@@ -1,34 +1,100 @@
 <main class="home">
   <aside class="home__painel-pessoal">
     <figure class="home__painel-pessoal__imagem">
-      <img>
+      <img src="assets/image/logo.png">
     </figure>
 
-    <h2 class="home__painel-pessoal__titulo">Olá, você!</h2>
+    <div>
 
-    <p class="home__painel-pessoal__subtitulo">Organize sua rotina</p>
+      <h2 class="home__painel-pessoal__titulo">Olá, você!</h2>
 
-    <ul class="home__painel-pessoal__lista">
-      <li><a href=”#”>Link1</a></li>
-      <li><a href=”#”>Link2</a></li>
-      <li><a href=”#”>Link3</a></li>
-      <li><a href=”#”>Link4</a></li>
+      <p class="home__painel-pessoal__subtitulo"> Bem-vindo ao Organize-Me, a ferramenta definitiva para gerenciar suas
+        tarefas diárias. Crie, edite e acompanhe suas atividades de forma simples e eficiente. Mantenha sua
+        produtividade em alta, organize suas responsabilidades e nunca mais perca um prazo. Experimente o Organize-Me e
+        transforme a maneira como você gerencia seu tempo.
+      </p>
+
+      <ul class="home__painel-pessoal__lista">
+        <li>
+          <img src="assets/icons/linkedin.svg">
+          <a href="https://www.linkedin.com/in/gabrieladnz" alt="Linkedin">Linkedin</a>
+        </li>
+
+        <li>
+          <img src="assets/icons/github.svg">
+          <a href="https://github.com/gabrieladnz" alt="GitHub">GitHub</a>
+        </li>
+        <li>
+          <img src="assets/icons/blog.svg">
+          <a href="https://dev.to/gabrieladnz" alt="Dev.to">Dev.to</a>
+        </li>
       </ul>
+    </div>
+
+    <footer style="display: flex; align-items: center;     justify-content: center;">
+      <img class="imagem-footer" src="assets/image/pucrs.png">
+    </footer>
   </aside>
 
   <section class="home__painel-tarefas">
     <header class="home__painel-tarefas__cabecalho">
       <h1>Lista de tarefas</h1>
-      <button>Criar task</button>
+
+      <div style="    display: flex;
+      align-items: stretch;
+      justify-content: center;">
+        <input type="search" (input)="filtrarInput($event)" class="home__painel-tarefas__cabecalho__pesquisa"
+          placeholder="Buscar tarefa..." />
+        <button (click)="abrirModalAdicionarTarefa()" style="background-color: #E6A7AE;"
+          mat-raised-button><mat-icon>add</mat-icon>Criar task</button>
+      </div>
     </header>
 
     <section class="home__painel-tarefas__tabela">
       <div class="home__painel-tarefas__tabela__tarefas-dia">
-        <h2>Dia</h2>
+        <article style="display: flex;">
+          <mat-icon style="color: #EFA135;">brightness_high</mat-icon>
+          <h2 style="margin-left: 5px;">Dia</h2>
+        </article>
+
+        <table>
+          <tr class="elevar" *ngFor="let task of (tasksFiltradas.length > 0 ? tasksFiltradas : tasksDia); let i = index">
+            <div style="display: flex;
+              flex-direction: column;">
+              <td style="font-weight: 600; color: #8AB7E2;">{{ task.titulo }}</td>
+              <td>{{ task.descricao }}</td>
+            </div>
+
+            <div>
+              <td><button (click)="apagarTarefa(i, 'dia')"
+                  style="background: none; border: none; cursor: pointer;"><mat-icon
+                    style="color: gray;">delete</mat-icon></button></td>
+            </div>
+          </tr>
+        </table>
       </div>
 
       <div class="home__painel-tarefas__tabela__tarefas-noite">
-        <h2>Noite</h2>
+        <article style="display: flex;">
+          <mat-icon>dark_mode</mat-icon>
+          <h2 style="margin-left: 5px;">Noite</h2>
+        </article>
+
+        <table>
+          <tr class="elevar" *ngFor="let task of (tasksFiltradasNoite.length > 0 ? tasksFiltradasNoite : taskNoite); let i = index">
+            <div style="display: flex;
+              flex-direction: column;">
+              <td style="font-weight: 600; color: #8AB7E2;">{{ task.titulo }}</td>
+              <td>{{ task.descricao }}</td>
+            </div>
+
+            <div>
+              <td><button (click)="apagarTarefa(i, 'noite')"
+                  style="background: none; border: none; cursor: pointer;"><mat-icon
+                    style="color: gray;">delete</mat-icon></button></td>
+            </div>
+          </tr>
+        </table>
       </div>
     </section>
   </section>

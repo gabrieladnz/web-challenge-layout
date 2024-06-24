@@ -4,12 +4,12 @@ import { HomeComponent } from './page/home/home.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: 'tarefas',
     component: HomeComponent,
   },
   {
     path: '**',
-    redirectTo: '/home'
+    redirectTo: '/tarefas'
   }
 ];
 
